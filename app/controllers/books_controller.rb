@@ -1,3 +1,5 @@
+require 'pry'
+
 class BooksController < BlocWorks::Controller
   def welcome
     render :welcome, book: "Eloquent Ruby"
@@ -8,6 +10,9 @@ class BooksController < BlocWorks::Controller
   end
   
   def show
+    # Allows you to open a pry repl right at this instance to check variables etc for debugging
+    binding.pry
+    @book = Book.find(params["id"])
   end
   
   def new
