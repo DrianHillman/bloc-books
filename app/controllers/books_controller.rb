@@ -13,6 +13,7 @@ class BooksController < BlocWorks::Controller
     # Allows you to open a pry repl right at this instance to check variables etc for debugging
     binding.pry
     @book = Book.find(params["id"])
+    render :show, book: book
   end
   
   def new
